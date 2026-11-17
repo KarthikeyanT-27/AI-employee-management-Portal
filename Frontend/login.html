@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI-Enhanced Employee Management - Sign in</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="auth-wrap">
+  <div class="auth-card">
+    <div style="text-align:center;margin-bottom:14px">
+      <h1>Employee Management <span style="color:var(--brand)">AI</span></h1>
+      <div class="muted">Attendance · Payroll · Attrition prediction · AI insights</div>
+    </div>
+    <div class="card">
+      <div class="tabs" id="tabs">
+        <button type="button" data-tab="employee" class="active">Employee</button>
+        <button type="button" data-tab="hr">HR / Admin</button>
+      </div>
+
+      <form id="login-form" autocomplete="on">
+        <label for="l-email">Email</label>
+        <input id="l-email" type="email" required autocomplete="username">
+        <label for="l-pass">Password</label>
+        <input id="l-pass" type="password" required autocomplete="current-password">
+        <div class="err" id="l-err" role="alert"></div>
+        <button class="btn primary" style="width:100%;margin-top:8px" id="l-btn">Sign in</button>
+        <button type="button" class="btn hidden" id="google-btn" style="width:100%;margin-top:8px">Sign in with Google</button>
+        <div class="muted small" style="margin-top:12px;text-align:center">There is no self-registration. Your account is created by HR.
+          If you cannot sign in, contact your HR department.</div>
+        <div class="muted small" id="server-note" style="margin-top:8px;text-align:center"></div>
+      </form>
+    </div>
+  </div>
+</div>
+<script src="/js/api.js"></script>
+<script src="/js/login.js"></script>
+</body>
+</html>

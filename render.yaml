@@ -1,0 +1,32 @@
+# Render Blueprint - free web service. Create it with: Dashboard -> New -> Blueprint -> pick this repository.
+# (Or create a "Web Service" manually and copy the build/start commands below.)
+services:
+  - type: web
+    name: ai-employee-management
+    runtime: python
+    plan: free
+    region: singapore                 # closest free region to India; change if you prefer
+    buildCommand: pip install -r Backend/requirements.txt
+    # ONE worker: the live-notification broker is in-process. gevent lets that one worker hold many open streams.
+    startCommand: cd Backend && gunicorn wsgi:app -k gthread -w 1 --threads 64 --timeout 120 --bind 0.0.0.0:$PORT
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.8
+      - key: APP_ENV
+        value: production
+      - key: SECRET_KEY
+        generateValue: true             # Render creates a strong random value
+      - key: DATABASE_URL
+        sync: false                     # paste your Neon connection string when prompted
+      - key: ADMIN_EMAIL
+        value: karthiksai9865@gmail.com
+      - key: ADMIN_INITIAL_PASSWORD
+        sync: false                     # choose the first admin password (changed at first login)
+      - key: APP_TIMEZONE
+        value: Asia/Kolkata
+      - key: GROQ_API_KEY
+        sync: false                     # free key from console.groq.com (leave blank to use the labelled fallback)
+      - key: SEED_DEMO_DATA
+        value: "false"

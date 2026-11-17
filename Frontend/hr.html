@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HR Dashboard - Employee Management</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="logo">HR<span>AI</span> Console</div>
+    <a class="nav active" data-view="overview">Overview</a>
+    <a class="nav" data-view="employees">Employees</a>
+    <a class="nav" data-view="org">Departments & Roles</a>
+    <a class="nav" data-view="attendance">Attendance</a>
+    <a class="nav" data-view="corrections">Corrections</a>
+    <a class="nav" data-view="leaves">Leave approvals</a>
+    <a class="nav" data-view="payroll">Payroll</a>
+    <a class="nav" data-view="attrition">Attrition (ML)</a>
+    <a class="nav" data-view="reports">Reports</a>
+    <div class="spacer"></div>
+    <div class="who"><div id="who-name" style="color:#fff"></div><div id="who-role">HR</div>
+      <button class="btn sm" style="margin-top:8px" data-act="password">Change password</button>
+      <button class="btn sm" style="margin-top:8px" data-act="logout">Sign out</button></div>
+  </aside>
+  <main class="main" id="view"></main>
+</div>
+<script src="/js/api.js"></script>
+<script src="/js/notify.js"></script>
+<script src="/js/hr.js"></script>
+</body>
+</html>

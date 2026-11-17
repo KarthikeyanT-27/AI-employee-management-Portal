@@ -1,0 +1,93 @@
+{
+  "features": [
+    "attendance_pct",
+    "salary_level",
+    "overtime_hours",
+    "years_experience",
+    "job_satisfaction",
+    "leave_frequency"
+  ],
+  "label_encoding": {
+    "Low": 0,
+    "Moderate": 1,
+    "High": 2
+  },
+  "decoding": {
+    "0": "Low",
+    "1": "Moderate",
+    "2": "High"
+  },
+  "metrics": {
+    "accuracy": 0.7383,
+    "macro_f1": 0.7214,
+    "cv_accuracy_mean": 0.7767,
+    "cv_accuracy_std": 0.0103,
+    "confusion_matrix": [
+      [
+        246,
+        54,
+        0
+      ],
+      [
+        44,
+        109,
+        27
+      ],
+      [
+        1,
+        31,
+        88
+      ]
+    ],
+    "report": {
+      "Low": {
+        "precision": 0.845360824742268,
+        "recall": 0.82,
+        "f1-score": 0.8324873096446701,
+        "support": 300.0
+      },
+      "Moderate": {
+        "precision": 0.5618556701030928,
+        "recall": 0.6055555555555555,
+        "f1-score": 0.5828877005347594,
+        "support": 180.0
+      },
+      "High": {
+        "precision": 0.7652173913043478,
+        "recall": 0.7333333333333333,
+        "f1-score": 0.7489361702127659,
+        "support": 120.0
+      },
+      "accuracy": 0.7383333333333333,
+      "macro avg": {
+        "precision": 0.7241446287165695,
+        "recall": 0.7196296296296296,
+        "f1-score": 0.7214370601307317,
+        "support": 600.0
+      },
+      "weighted avg": {
+        "precision": 0.7442805916629315,
+        "recall": 0.7383333333333333,
+        "f1-score": 0.7408971990253161,
+        "support": 600.0
+      }
+    }
+  },
+  "best_params": {
+    "rf__max_depth": "None",
+    "rf__min_samples_leaf": 3,
+    "rf__n_estimators": 200
+  },
+  "feature_importance": {
+    "attendance_pct": 0.1912195504837279,
+    "salary_level": 0.10895702559127671,
+    "overtime_hours": 0.21951763718989922,
+    "years_experience": 0.09259288115359667,
+    "job_satisfaction": 0.31563871980828767,
+    "leave_frequency": 0.07207418577321188
+  },
+  "train_rows": 2400,
+  "test_rows": 600,
+  "sklearn_version": "1.8.0",
+  "python": "3.12.3"
+}

@@ -1,0 +1,26 @@
+# OPTIONAL: host only the static front end on Netlify (free) and forward /api to your Render backend.
+# The simplest setup is to use the Render URL alone (Render serves the front end too) - see DEPLOYMENT.md.
+# 1) Replace YOUR-RENDER-SERVICE with the name of your Render service.   2) Deploy this repo on Netlify.
+[build]
+  publish = "Frontend"
+
+# /api is proxied (status 200 = rewrite, not redirect), so the browser only ever talks to the Netlify domain:
+# same-site cookies, no CORS. Real-time falls back to 15-second polling if the proxy cuts the live stream.
+[[redirects]]
+  from = "/api/*"
+  to = "https://YOUR-RENDER-SERVICE.onrender.com/api/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/"
+  to = "/login.html"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "same-origin"
+    Content-Security-Policy = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"

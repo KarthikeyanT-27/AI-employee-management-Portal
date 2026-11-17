@@ -1,0 +1,16 @@
+Flask==3.1.3
+Flask-SQLAlchemy==3.1.1
+SQLAlchemy==2.1.6
+psycopg2-binary==2.9.13      # PostgreSQL driver (Neon / Supabase free tiers)
+PyMySQL==1.2.3               # optional: MySQL instead of PostgreSQL
+cryptography>=42
+scikit-learn==1.8.0
+joblib==1.5.3
+pandas==3.0.2
+numpy==2.4.4
+requests==2.33.1
+python-dotenv==1.2.2
+tzdata                       # timezone database (needed on Windows and slim Linux images)
+gunicorn==27.0.0             # production web server
+gevent==26.9.0   # lets ONE worker hold many live-notification (SSE) connections
+packaging

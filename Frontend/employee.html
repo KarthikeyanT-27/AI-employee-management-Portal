@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Dashboard - Employee Management</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="logo">Employee<span>AI</span></div>
+    <a class="nav active" data-view="dashboard">Dashboard</a>
+    <a class="nav" data-view="attendance">Attendance</a>
+    <a class="nav" data-view="leave">Leave</a>
+    <a class="nav" data-view="payslips">Payslips</a>
+    <a class="nav" data-view="satisfaction">Satisfaction survey</a>
+    <a class="nav" data-view="profile">My Profile</a>
+    <div class="spacer"></div>
+    <div class="who"><div id="who-name" style="color:#fff"></div><div id="who-role"></div>
+      <button class="btn sm" style="margin-top:8px" data-act="password">Change password</button>
+      <button class="btn sm" style="margin-top:8px" data-act="logout">Sign out</button></div>
+  </aside>
+  <main class="main" id="view"></main>
+</div>
+<script src="/js/api.js"></script>
+<script src="/js/notify.js"></script>
+<script src="/js/employee.js"></script>
+</body>
+</html>
